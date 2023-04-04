@@ -1,2 +1,3 @@
-# vegePcre
-pcre++ pcrec go impl
+* apt install gcc
+* apt install g++
+* apt install libpcre++-dev
