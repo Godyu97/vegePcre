@@ -1,8 +1,9 @@
 package main
 
 import (
-	"github.com/Godyu97/vegePcre"
 	"log"
+
+	"github.com/Godyu97/vegePcre"
 )
 
 func main() {
@@ -11,5 +12,7 @@ func main() {
 	var patten = "\\((.*?)\\)"
 	var res = ""
 	res = vegePcre.PcreppReplaceImpl(patten, replace_str, src, "sig")
+	match := vegePcre.PcreppMatchFirstImpl(patten, src, "sig")
 	log.Println(res)
+	log.Println(match)
 }
