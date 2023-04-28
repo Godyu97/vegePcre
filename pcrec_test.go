@@ -178,18 +178,3 @@ func TestFindIndex(t *testing.T) {
 		t.Error("FindIndex end", i[1])
 	}
 }
-
-//
-//func TestReplaceAll(t *testing.T) {
-//	re := MustCompile("foo", 0)
-//	// Don't change at ends.
-//	result := re.ReplaceAll([]byte("I like foods."), []byte("car"), 0)
-//	if string(result) != "I like cards." {
-//		t.Error("ReplaceAll", result)
-//	}
-//	// Change at ends.
-//	result = re.ReplaceAll([]byte("food fight fools foo"), []byte("car"), 0)
-//	if string(result) != "card fight carls car" {
-//		t.Error("ReplaceAll2", result)
-//	}
-//}
