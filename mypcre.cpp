@@ -9,7 +9,6 @@ const char* Pcrepp_Replace(const char* patten, const char* repl,
     std::strcpy(result, res.c_str());
     return result;
   } catch (const std::exception& e) {
-    std::cerr << e.what() << '\n';
     return "";
   }
 }
@@ -34,7 +33,6 @@ const char* Pcrepp_MatchFirst(const char* patten, const char* src,
     }
 
   } catch (const std::exception& e) {
-    std::cerr << e.what() << '\n';
     return "";
   }
 }

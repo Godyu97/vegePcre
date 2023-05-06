@@ -47,11 +47,9 @@ extern swig_type_6 _wrap_Pcrepp_MatchFirst_vegePcre_44c91aeb9b22adeb(swig_type_7
 */
 import "C"
 
-import (
-	_ "runtime/cgo"
-	"sync"
-	"unsafe"
-)
+import "unsafe"
+import _ "runtime/cgo"
+import "sync"
 
 type _ unsafe.Pointer
 
@@ -116,7 +114,6 @@ func Pcrepp_Replace(arg1 string, arg2 string, arg3 string, arg4 string) (_swig_r
 	}
 	var swig_r_1 string
 	swig_r_1 = swigCopyString(swig_r)
-	// Swig_free(uintptr(unsafe.Pointer(&swig_r_p)))
 	return swig_r_1
 }
 
@@ -138,6 +135,5 @@ func Pcrepp_MatchFirst(arg1 string, arg2 string, arg3 string) (_swig_ret string)
 	}
 	var swig_r_1 string
 	swig_r_1 = swigCopyString(swig_r)
-	// Swig_free(uintptr(unsafe.Pointer(&swig_r_p)))
 	return swig_r_1
 }
