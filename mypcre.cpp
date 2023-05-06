@@ -26,7 +26,7 @@ const char* Pcrepp_MatchFirst(const char* patten, const char* src,
       const char* tmp;
       pcre_get_substring(src, vec, rc, 0, &tmp);
       char* result = new char[strlen(tmp) + 1];
-      strcpy(result, tmp);
+      std::strcpy(result, tmp);
       pcre_free_substring(tmp);
       return result;
     } else {
