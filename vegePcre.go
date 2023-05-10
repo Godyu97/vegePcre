@@ -11,7 +11,7 @@
 package vegePcre
 
 /*
-#cgo LDFLAGS: -lpcre++ -lpcre
+#cgo LDFLAGS: -lpcre++ -lpcre -lpcrecpp
 #cgo CFLAGS: -I/usr/include
 
 #define intgo swig_intgo

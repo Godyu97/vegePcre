@@ -3,10 +3,25 @@
 const char* Pcrepp_Replace(const char* patten, const char* repl,
                            const char* src, const char* flags) {
   try {
-    pcrepp::Pcre re(patten, flags);
-    std::string res = re.replace(src, repl);
+    pcrecpp::RE_Options* op = new (pcrecpp::RE_Options);
+    if (strstr(flags, "s") != NULL) {
+      op->set_dotall(true);
+    }
+    if (strstr(flags, "i") != NULL) {
+      op->set_caseless(true);
+    }
+    if (strstr(flags, "m") != NULL) {
+      op->set_multiline(true);
+    }
+    if (strstr(flags, "x") != NULL) {
+      op->set_extended(true);
+    }
+    pcrecpp::RE re(patten, *op);
+    std::string res(src);
+    re.GlobalReplace(repl, &res);
     char* result = new char[res.size() + 1];
     std::strcpy(result, res.c_str());
+    free(op);
     return result;
   } catch (const std::exception& e) {
     return "";

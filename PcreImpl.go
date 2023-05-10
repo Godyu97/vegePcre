@@ -18,10 +18,6 @@ package vegePcre
  *
  *- <b>x</b>   Whitespace characters will be ignored (except within
  *             character classes or if escaped).
- *
- *- <b>g</b>   Match multiple times. This flags affects only the behavior of the
- *             replace(const std::string& piece, const std::string& with) method.
- *
  * @return A new Pcre object, which holds te compiled pattern.
  */
 func PcreppReplaceImpl(pattern string, repl string, src string, flags string) string {
