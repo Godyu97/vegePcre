@@ -114,6 +114,7 @@ func Pcrepp_Replace(arg1 string, arg2 string, arg3 string, arg4 string) (_swig_r
 	}
 	var swig_r_1 string
 	swig_r_1 = swigCopyString(swig_r)
+
 	return swig_r_1
 }
 

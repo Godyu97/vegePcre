@@ -7,3 +7,7 @@ go get -u github.com/Godyu97/vegePcre@latest
 * apt install gcc
 * apt install g++
 * apt install libpcre++-dev
+
+### cgo
+* `#cgo LDFLAGS: -lpcre++ -lpcre -lpcrecpp`
+* `#cgo CFLAGS: -I/usr/include`

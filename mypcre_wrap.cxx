@@ -292,7 +292,8 @@ _gostring_ _wrap_Pcrepp_Replace_vegePcre_44c91aeb9b22adeb(_gostring_ _swig_go_0,
   free(arg1); 
   free(arg2); 
   free(arg3); 
-  free(arg4); 
+  free(arg4);
+  free(result);
   return _swig_go_result;
 }
 
@@ -324,7 +325,8 @@ _gostring_ _wrap_Pcrepp_MatchFirst_vegePcre_44c91aeb9b22adeb(_gostring_ _swig_go
   _swig_go_result = Swig_AllocateString((char*)result, result ? strlen((char*)result) : 0); 
   free(arg1); 
   free(arg2); 
-  free(arg3); 
+  free(arg3);
+  free(result);
   return _swig_go_result;
 }
 
