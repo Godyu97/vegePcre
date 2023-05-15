@@ -11,7 +11,7 @@ func main() {
 	var replace_str = `sacascascascas<\1>aaa`
 	var patten = "\\((.*?)\\)"
 	res := vegePcre.PcreppReplaceImpl(patten, replace_str, src, "sig")
-	match := vegePcre.PcreppMatchFirstImpl(patten, src, "sig")
+	//match := vegePcre.PcreppMatchFirstImpl(patten, src, "sig")
 	log.Println(res)
-	log.Println(match)
+	//log.Println(match)
 }

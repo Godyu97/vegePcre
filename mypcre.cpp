@@ -3,27 +3,32 @@
 const char* Pcrepp_Replace(const char* patten, const char* repl,
                            const char* src, const char* flags) {
   try {
-    pcrecpp::RE_Options op = pcrecpp::RE_Options();
+    pcrecpp::RE_Options* op = new pcrecpp::RE_Options();
     if (strstr(flags, "s") != NULL) {
-      op.set_dotall(true);
+      op->set_dotall(true);
     }
     if (strstr(flags, "i") != NULL) {
-      op.set_caseless(true);
+      op->set_caseless(true);
     }
     if (strstr(flags, "m") != NULL) {
-      op.set_multiline(true);
+      op->set_multiline(true);
     }
     if (strstr(flags, "x") != NULL) {
-      op.set_extended(true);
+      op->set_extended(true);
     }
-    pcrecpp::RE re = pcrecpp::RE(patten, op);
-    std::string res(src);
-    re.GlobalReplace(repl, &res);
-    char* result = (char*)malloc(res.size() + 1);
-    std::strcpy(result, res.c_str());
+    pcrecpp::RE* re = new pcrecpp::RE(patten, *op);
+    std::string* res = new std::string(src);
+    re->GlobalReplace(repl, res);
+    char* result = (char*)malloc(res->size() + 1);
+    std::strcpy(result, res->c_str());
+    delete op;
+    delete re;
+    delete res;
     return result;
   } catch (const std::exception& e) {
-    return "";
+    char* result = (char*)malloc(1);
+    std::strcpy(result, "");
+    return result;
   }
 }
 

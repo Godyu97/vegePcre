@@ -72,8 +72,8 @@ type swig_gostring struct {
 	n int
 }
 
-func swigCopyString(s *string) string {
-	p := *(*swig_gostring)(unsafe.Pointer(s))
+func swigCopyString(s string) string {
+	p := *(*swig_gostring)(unsafe.Pointer(&s))
 	r := string((*[0x7fffffff]byte)(unsafe.Pointer(p.p))[:p.n])
 	Swig_free(p.p)
 	return r
@@ -112,7 +112,7 @@ func Pcrepp_Replace(arg1 string, arg2 string, arg3 string, arg4 string) (_swig_r
 		Swig_escape_val = arg4
 	}
 	var swig_r_1 string
-	swig_r_1 = swigCopyString(&swig_r)
+	swig_r_1 = swigCopyString(swig_r)
 	return swig_r_1
 }
 
@@ -133,6 +133,6 @@ func Pcrepp_MatchFirst(arg1 string, arg2 string, arg3 string) (_swig_ret string)
 		Swig_escape_val = arg3
 	}
 	var swig_r_1 string
-	swig_r_1 = swigCopyString(&swig_r)
+	swig_r_1 = swigCopyString(swig_r)
 	return swig_r_1
 }
