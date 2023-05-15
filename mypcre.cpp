@@ -30,7 +30,7 @@ const char* Pcrepp_Replace(const char* patten, const char* repl,
 const char* Pcrepp_MatchFirst(const char* patten, const char* src,
                               const char* flags) {
   try {
-    pcrepp::Pcre re(patten, flags);
+    pcrepp::Pcre re = pcrepp::Pcre(patten, flags);
     pcre* cre = re.get_pcre();
     int vec[30];
     int len = strlen(src);

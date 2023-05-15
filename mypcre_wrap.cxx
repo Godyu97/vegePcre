@@ -163,10 +163,11 @@ typedef struct { void* array; intgo len; intgo cap; } _goslice_;
 
 
 
-static _gostring_ Swig_AllocateString(const char *p, size_t l) {
+static _gostring_ Swig_AllocateString( char *p, size_t l) {
   _gostring_ ret;
   ret.p = (char*)malloc(l);
   memcpy(ret.p, p, l);
+  free(p);
   ret.n = l;
   return ret;
 }
@@ -292,8 +293,7 @@ _gostring_ _wrap_Pcrepp_Replace_vegePcre_44c91aeb9b22adeb(_gostring_ _swig_go_0,
   free(arg1); 
   free(arg2); 
   free(arg3); 
-  free(arg4);
-  free(result);
+  free(arg4); 
   return _swig_go_result;
 }
 
@@ -325,8 +325,7 @@ _gostring_ _wrap_Pcrepp_MatchFirst_vegePcre_44c91aeb9b22adeb(_gostring_ _swig_go
   _swig_go_result = Swig_AllocateString((char*)result, result ? strlen((char*)result) : 0); 
   free(arg1); 
   free(arg2); 
-  free(arg3);
-  free(result);
+  free(arg3); 
   return _swig_go_result;
 }
 

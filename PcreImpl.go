@@ -1,5 +1,7 @@
 package vegePcre
 
+import "C"
+
 /* * Constructor.
  * Compile the given pattern. An Pcre object created this way can
  * be used multiple times to do searches.
@@ -24,7 +26,8 @@ func PcreppReplaceImpl(pattern string, repl string, src string, flags string) st
 	if src == "" {
 		return ""
 	}
-	return Pcrepp_Replace(pattern, repl, src, flags)
+	ret := Pcrepp_Replace(pattern, repl, src, flags)
+	return ret
 }
 
 func PcreppMatchFirstImpl(pattern, src, flags string) string {
