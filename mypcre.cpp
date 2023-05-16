@@ -1,39 +1,36 @@
 #include "mypcre.h"
 
-const char* Pcrepp_Replace(const char* patten, const char* repl,
-                           const char* src, const char* flags) {
+char* Pcrecpp_Replace(char* patten, char* repl, char* src, char* flags) {
+  char* result = NULL;
   try {
-    pcrecpp::RE_Options* op = new pcrecpp::RE_Options();
+    pcrecpp::RE_Options op;
     if (strstr(flags, "s") != NULL) {
-      op->set_dotall(true);
+      op.set_dotall(true);
     }
     if (strstr(flags, "i") != NULL) {
-      op->set_caseless(true);
+      op.set_caseless(true);
     }
     if (strstr(flags, "m") != NULL) {
-      op->set_multiline(true);
+      op.set_multiline(true);
     }
     if (strstr(flags, "x") != NULL) {
-      op->set_extended(true);
+      op.set_extended(true);
     }
-    pcrecpp::RE* re = new pcrecpp::RE(patten, *op);
-    std::string* res = new std::string(src);
-    re->GlobalReplace(repl, res);
-    char* result = (char*)malloc(res->size() + 1);
-    std::strcpy(result, res->c_str());
-    delete op;
-    delete re;
-    delete res;
+    pcrecpp::RE re(patten, op);
+    std::string res = src;
+    re.GlobalReplace(repl, &res);
+    result = (char*)malloc(res.size() + 1);
+    std::strcpy(result, res.c_str());
     return result;
   } catch (const std::exception& e) {
-    char* result = (char*)malloc(1);
+    result = (char*)malloc(1);
     std::strcpy(result, "");
     return result;
   }
 }
 
-const char* Pcrepp_MatchFirst(const char* patten, const char* src,
-                              const char* flags) {
+char* Pcrecpp_MatchFirst(char* patten, char* src, char* flags) {
+  char* result = NULL;
   try {
     pcrepp::Pcre re = pcrepp::Pcre(patten, flags);
     pcre* cre = re.get_pcre();
@@ -43,14 +40,18 @@ const char* Pcrepp_MatchFirst(const char* patten, const char* src,
     if (rc > 0) {
       const char* tmp;
       pcre_get_substring(src, vec, rc, 0, &tmp);
-      char* result = (char*)malloc(strlen(tmp) + 1);
+      result = (char*)malloc(strlen(tmp) + 1);
       std::strcpy(result, tmp);
       pcre_free_substring(tmp);
       return result;
     } else {
-      return "";
+      result = (char*)malloc(1);
+      std::strcpy(result, "");
+      return result;
     }
   } catch (const std::exception& e) {
-    return "";
+    result = (char*)malloc(1);
+    std::strcpy(result, "");
+    return result;
   }
 }

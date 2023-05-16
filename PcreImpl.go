@@ -26,7 +26,7 @@ func PcreppReplaceImpl(pattern string, repl string, src string, flags string) st
 	if src == "" {
 		return ""
 	}
-	ret := Pcrepp_Replace(pattern, repl, src, flags)
+	ret := Pcrecpp_ReplaceCgo(pattern, repl, src, flags)
 	return ret
 }
 
@@ -34,5 +34,5 @@ func PcreppMatchFirstImpl(pattern, src, flags string) string {
 	if src == "" {
 		return ""
 	}
-	return Pcrepp_MatchFirst(pattern, src, flags)
+	return Pcrecpp_MatchFirst(pattern, src, flags)
 }

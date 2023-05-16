@@ -163,11 +163,10 @@ typedef struct { void* array; intgo len; intgo cap; } _goslice_;
 
 
 
-static _gostring_ Swig_AllocateString( char *p, size_t l) {
+static _gostring_ Swig_AllocateString(const char *p, size_t l) {
   _gostring_ ret;
   ret.p = (char*)malloc(l);
   memcpy(ret.p, p, l);
-  free(p);
   ret.n = l;
   return ret;
 }
@@ -259,7 +258,7 @@ void *_wrap_Swig_malloc_vegePcre_44c91aeb9b22adeb(intgo _swig_go_0) {
 }
 
 
-_gostring_ _wrap_Pcrepp_Replace_vegePcre_44c91aeb9b22adeb(_gostring_ _swig_go_0, _gostring_ _swig_go_1, _gostring_ _swig_go_2, _gostring_ _swig_go_3) {
+_gostring_ _wrap_Pcrecpp_Replace_vegePcre_44c91aeb9b22adeb(_gostring_ _swig_go_0, _gostring_ _swig_go_1, _gostring_ _swig_go_2, _gostring_ _swig_go_3) {
   char *arg1 = (char *) 0 ;
   char *arg2 = (char *) 0 ;
   char *arg3 = (char *) 0 ;
@@ -288,7 +287,7 @@ _gostring_ _wrap_Pcrepp_Replace_vegePcre_44c91aeb9b22adeb(_gostring_ _swig_go_0,
   arg4[_swig_go_3.n] = '\0';
   
   
-  result = (char *)Pcrepp_Replace((char const *)arg1,(char const *)arg2,(char const *)arg3,(char const *)arg4);
+  result = (char *)Pcrecpp_Replace(arg1,arg2,arg3,arg4);
   _swig_go_result = Swig_AllocateString((char*)result, result ? strlen((char*)result) : 0); 
   free(arg1); 
   free(arg2); 
@@ -298,7 +297,7 @@ _gostring_ _wrap_Pcrepp_Replace_vegePcre_44c91aeb9b22adeb(_gostring_ _swig_go_0,
 }
 
 
-_gostring_ _wrap_Pcrepp_MatchFirst_vegePcre_44c91aeb9b22adeb(_gostring_ _swig_go_0, _gostring_ _swig_go_1, _gostring_ _swig_go_2) {
+_gostring_ _wrap_Pcrecpp_MatchFirst_vegePcre_44c91aeb9b22adeb(_gostring_ _swig_go_0, _gostring_ _swig_go_1, _gostring_ _swig_go_2) {
   char *arg1 = (char *) 0 ;
   char *arg2 = (char *) 0 ;
   char *arg3 = (char *) 0 ;
@@ -321,7 +320,7 @@ _gostring_ _wrap_Pcrepp_MatchFirst_vegePcre_44c91aeb9b22adeb(_gostring_ _swig_go
   arg3[_swig_go_2.n] = '\0';
   
   
-  result = (char *)Pcrepp_MatchFirst((char const *)arg1,(char const *)arg2,(char const *)arg3);
+  result = (char *)Pcrecpp_MatchFirst(arg1,arg2,arg3);
   _swig_go_result = Swig_AllocateString((char*)result, result ? strlen((char*)result) : 0); 
   free(arg1); 
   free(arg2); 

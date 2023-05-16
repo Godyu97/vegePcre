@@ -18,7 +18,7 @@ typedef void *swig_voidp;
 
 #include <stddef.h>
 #include <stdint.h>
-
+#include <stdlib.h>
 
 typedef long long intgo;
 typedef unsigned long long uintgo;
@@ -40,8 +40,10 @@ typedef _gostring_ swig_type_8;
 typedef _gostring_ swig_type_9;
 extern void _wrap_Swig_free_vegePcre_44c91aeb9b22adeb(uintptr_t arg1);
 extern uintptr_t _wrap_Swig_malloc_vegePcre_44c91aeb9b22adeb(swig_intgo arg1);
-extern swig_type_1 _wrap_Pcrepp_Replace_vegePcre_44c91aeb9b22adeb(swig_type_2 arg1, swig_type_3 arg2, swig_type_4 arg3, swig_type_5 arg4);
-extern swig_type_6 _wrap_Pcrepp_MatchFirst_vegePcre_44c91aeb9b22adeb(swig_type_7 arg1, swig_type_8 arg2, swig_type_9 arg3);
+extern swig_type_1 _wrap_Pcrecpp_Replace_vegePcre_44c91aeb9b22adeb(swig_type_2 arg1, swig_type_3 arg2, swig_type_4 arg3, swig_type_5 arg4);
+extern swig_type_6 _wrap_Pcrecpp_MatchFirst_vegePcre_44c91aeb9b22adeb(swig_type_7 arg1, swig_type_8 arg2, swig_type_9 arg3);
+extern char* Pcrecpp_Replace(char* patten, char* repl, char* src, char* flags);
+extern char* Pcrecpp_MatchFirst(char* patten, char* src, char* flags);
 #undef intgo
 */
 import "C"
@@ -91,13 +93,13 @@ func Swig_malloc(arg1 int) (_swig_ret uintptr) {
 	return swig_r
 }
 
-func Pcrepp_Replace(arg1 string, arg2 string, arg3 string, arg4 string) (_swig_ret string) {
+func Pcrecpp_Replace(arg1 string, arg2 string, arg3 string, arg4 string) (_swig_ret string) {
 	var swig_r string
 	_swig_i_0 := arg1
 	_swig_i_1 := arg2
 	_swig_i_2 := arg3
 	_swig_i_3 := arg4
-	swig_r_p := C._wrap_Pcrepp_Replace_vegePcre_44c91aeb9b22adeb(*(*C.swig_type_2)(unsafe.Pointer(&_swig_i_0)), *(*C.swig_type_3)(unsafe.Pointer(&_swig_i_1)), *(*C.swig_type_4)(unsafe.Pointer(&_swig_i_2)), *(*C.swig_type_5)(unsafe.Pointer(&_swig_i_3)))
+	swig_r_p := C._wrap_Pcrecpp_Replace_vegePcre_44c91aeb9b22adeb(*(*C.swig_type_2)(unsafe.Pointer(&_swig_i_0)), *(*C.swig_type_3)(unsafe.Pointer(&_swig_i_1)), *(*C.swig_type_4)(unsafe.Pointer(&_swig_i_2)), *(*C.swig_type_5)(unsafe.Pointer(&_swig_i_3)))
 	swig_r = *(*string)(unsafe.Pointer(&swig_r_p))
 	if Swig_escape_always_false {
 		Swig_escape_val = arg1
@@ -116,12 +118,33 @@ func Pcrepp_Replace(arg1 string, arg2 string, arg3 string, arg4 string) (_swig_r
 	return swig_r_1
 }
 
-func Pcrepp_MatchFirst(arg1 string, arg2 string, arg3 string) (_swig_ret string) {
+func Pcrecpp_ReplaceCgo(arg1 string, arg2 string, arg3 string, arg4 string) (_swig_ret string) {
+	// 将 Go 字符串转换为 C 字符串
+	cArg1 := C.CString(arg1)
+	defer C.free(unsafe.Pointer(cArg1))
+
+	cArg2 := C.CString(arg2)
+	defer C.free(unsafe.Pointer(cArg2))
+
+	cArg3 := C.CString(arg3)
+	defer C.free(unsafe.Pointer(cArg3))
+
+	cArg4 := C.CString(arg4)
+	defer C.free(unsafe.Pointer(cArg4))
+
+	// 调用 C 函数并获取返回值
+	cRet := C.Pcrecpp_Replace(cArg1, cArg2, cArg3, cArg4)
+	defer C.free(unsafe.Pointer(cRet))
+	// 将 C 字符串转换为 Go 字符串并返回
+	return C.GoString(cRet)
+}
+
+func Pcrecpp_MatchFirst(arg1 string, arg2 string, arg3 string) (_swig_ret string) {
 	var swig_r string
 	_swig_i_0 := arg1
 	_swig_i_1 := arg2
 	_swig_i_2 := arg3
-	swig_r_p := C._wrap_Pcrepp_MatchFirst_vegePcre_44c91aeb9b22adeb(*(*C.swig_type_7)(unsafe.Pointer(&_swig_i_0)), *(*C.swig_type_8)(unsafe.Pointer(&_swig_i_1)), *(*C.swig_type_9)(unsafe.Pointer(&_swig_i_2)))
+	swig_r_p := C._wrap_Pcrecpp_MatchFirst_vegePcre_44c91aeb9b22adeb(*(*C.swig_type_7)(unsafe.Pointer(&_swig_i_0)), *(*C.swig_type_8)(unsafe.Pointer(&_swig_i_1)), *(*C.swig_type_9)(unsafe.Pointer(&_swig_i_2)))
 	swig_r = *(*string)(unsafe.Pointer(&swig_r_p))
 	if Swig_escape_always_false {
 		Swig_escape_val = arg1
