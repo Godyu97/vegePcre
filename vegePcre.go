@@ -159,3 +159,21 @@ func Pcrecpp_MatchFirst(arg1 string, arg2 string, arg3 string) (_swig_ret string
 	swig_r_1 = swigCopyString(swig_r)
 	return swig_r_1
 }
+
+func Pcrecpp_MatchFirstCgo(arg1 string, arg2 string, arg3 string) (_swig_ret string) {
+	// 将 Go 字符串转换为 C 字符串
+	cArg1 := C.CString(arg1)
+	defer C.free(unsafe.Pointer(cArg1))
+
+	cArg2 := C.CString(arg2)
+	defer C.free(unsafe.Pointer(cArg2))
+
+	cArg3 := C.CString(arg3)
+	defer C.free(unsafe.Pointer(cArg3))
+
+	// 调用 C 函数并获取返回值
+	cRet := C.Pcrecpp_MatchFirst(cArg1, cArg2, cArg3)
+	defer C.free(unsafe.Pointer(cRet))
+	// 将 C 字符串转换为 Go 字符串并返回
+	return C.GoString(cRet)
+}

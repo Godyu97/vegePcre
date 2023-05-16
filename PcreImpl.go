@@ -34,5 +34,5 @@ func PcreppMatchFirstImpl(pattern, src, flags string) string {
 	if src == "" {
 		return ""
 	}
-	return Pcrecpp_MatchFirst(pattern, src, flags)
+	return Pcrecpp_MatchFirstCgo(pattern, src, flags)
 }
