@@ -13,110 +13,16 @@ package vegePcre
 /*
 #cgo LDFLAGS: -lpcre++ -lpcre -lpcrecpp
 #cgo CFLAGS: -I/usr/include
-#define intgo swig_intgo
-typedef void *swig_voidp;
 
-#include <stddef.h>
-#include <stdint.h>
 #include <stdlib.h>
 
-typedef long long intgo;
-typedef unsigned long long uintgo;
-
-
-
-typedef struct { char *p; intgo n; } _gostring_;
-typedef struct { void* array; intgo len; intgo cap; } _goslice_;
-
-
-typedef _gostring_ swig_type_1;
-typedef _gostring_ swig_type_2;
-typedef _gostring_ swig_type_3;
-typedef _gostring_ swig_type_4;
-typedef _gostring_ swig_type_5;
-typedef _gostring_ swig_type_6;
-typedef _gostring_ swig_type_7;
-typedef _gostring_ swig_type_8;
-typedef _gostring_ swig_type_9;
-extern void _wrap_Swig_free_vegePcre_44c91aeb9b22adeb(uintptr_t arg1);
-extern uintptr_t _wrap_Swig_malloc_vegePcre_44c91aeb9b22adeb(swig_intgo arg1);
-extern swig_type_1 _wrap_Pcrecpp_Replace_vegePcre_44c91aeb9b22adeb(swig_type_2 arg1, swig_type_3 arg2, swig_type_4 arg3, swig_type_5 arg4);
-extern swig_type_6 _wrap_Pcrecpp_MatchFirst_vegePcre_44c91aeb9b22adeb(swig_type_7 arg1, swig_type_8 arg2, swig_type_9 arg3);
 extern char* Pcrecpp_Replace(char* patten, char* repl, char* src, char* flags);
 extern char* Pcrecpp_MatchFirst(char* patten, char* src, char* flags);
-#undef intgo
 */
 import "C"
 
 import "unsafe"
 import _ "runtime/cgo"
-import "sync"
-
-type _ unsafe.Pointer
-
-var Swig_escape_always_false bool
-var Swig_escape_val interface{}
-
-type _swig_fnptr *byte
-type _swig_memberptr *byte
-
-func getSwigcptr(v interface{ Swigcptr() uintptr }) uintptr {
-	if v == nil {
-		return 0
-	}
-	return v.Swigcptr()
-}
-
-type _ sync.Mutex
-
-type swig_gostring struct {
-	p uintptr
-	n int
-}
-
-func swigCopyString(s string) string {
-	p := *(*swig_gostring)(unsafe.Pointer(&s))
-	r := string((*[0x7fffffff]byte)(unsafe.Pointer(p.p))[:p.n])
-	Swig_free(p.p)
-	return r
-}
-
-func Swig_free(arg1 uintptr) {
-	_swig_i_0 := arg1
-	C._wrap_Swig_free_vegePcre_44c91aeb9b22adeb(C.uintptr_t(_swig_i_0))
-}
-
-func Swig_malloc(arg1 int) (_swig_ret uintptr) {
-	var swig_r uintptr
-	_swig_i_0 := arg1
-	swig_r = (uintptr)(C._wrap_Swig_malloc_vegePcre_44c91aeb9b22adeb(C.swig_intgo(_swig_i_0)))
-	return swig_r
-}
-
-func Pcrecpp_Replace(arg1 string, arg2 string, arg3 string, arg4 string) (_swig_ret string) {
-	var swig_r string
-	_swig_i_0 := arg1
-	_swig_i_1 := arg2
-	_swig_i_2 := arg3
-	_swig_i_3 := arg4
-	swig_r_p := C._wrap_Pcrecpp_Replace_vegePcre_44c91aeb9b22adeb(*(*C.swig_type_2)(unsafe.Pointer(&_swig_i_0)), *(*C.swig_type_3)(unsafe.Pointer(&_swig_i_1)), *(*C.swig_type_4)(unsafe.Pointer(&_swig_i_2)), *(*C.swig_type_5)(unsafe.Pointer(&_swig_i_3)))
-	swig_r = *(*string)(unsafe.Pointer(&swig_r_p))
-	if Swig_escape_always_false {
-		Swig_escape_val = arg1
-	}
-	if Swig_escape_always_false {
-		Swig_escape_val = arg2
-	}
-	if Swig_escape_always_false {
-		Swig_escape_val = arg3
-	}
-	if Swig_escape_always_false {
-		Swig_escape_val = arg4
-	}
-	var swig_r_1 string
-	swig_r_1 = swigCopyString(swig_r)
-	return swig_r_1
-}
 
 func Pcrecpp_ReplaceCgo(arg1 string, arg2 string, arg3 string, arg4 string) (_swig_ret string) {
 	// 将 Go 字符串转换为 C 字符串
@@ -137,27 +43,6 @@ func Pcrecpp_ReplaceCgo(arg1 string, arg2 string, arg3 string, arg4 string) (_sw
 	defer C.free(unsafe.Pointer(cRet))
 	// 将 C 字符串转换为 Go 字符串并返回
 	return C.GoString(cRet)
-}
-
-func Pcrecpp_MatchFirst(arg1 string, arg2 string, arg3 string) (_swig_ret string) {
-	var swig_r string
-	_swig_i_0 := arg1
-	_swig_i_1 := arg2
-	_swig_i_2 := arg3
-	swig_r_p := C._wrap_Pcrecpp_MatchFirst_vegePcre_44c91aeb9b22adeb(*(*C.swig_type_7)(unsafe.Pointer(&_swig_i_0)), *(*C.swig_type_8)(unsafe.Pointer(&_swig_i_1)), *(*C.swig_type_9)(unsafe.Pointer(&_swig_i_2)))
-	swig_r = *(*string)(unsafe.Pointer(&swig_r_p))
-	if Swig_escape_always_false {
-		Swig_escape_val = arg1
-	}
-	if Swig_escape_always_false {
-		Swig_escape_val = arg2
-	}
-	if Swig_escape_always_false {
-		Swig_escape_val = arg3
-	}
-	var swig_r_1 string
-	swig_r_1 = swigCopyString(swig_r)
-	return swig_r_1
 }
 
 func Pcrecpp_MatchFirstCgo(arg1 string, arg2 string, arg3 string) (_swig_ret string) {

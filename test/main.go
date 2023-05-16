@@ -16,14 +16,15 @@ type PcreReq struct {
 }
 
 func main() {
-	var src = "Hello (world)(hh)!"
-	var replace_str = `sacascascascas<\1>aaa`
-	var patten = "\\((.*?)\\)"
-	res := vegePcre.PcreppReplaceImpl(patten, replace_str, src, "sig")
-	match := vegePcre.PcreppMatchFirstImpl(patten, src, "sig")
-	log.Println(res)
-	log.Println(match)
-
+	for {
+		var src = "Hello (world)(hh)!"
+		var replace_str = `sacascascascas<\1>aaa`
+		var patten = "\\((.*?)\\)"
+		res := vegePcre.PcreppReplaceImpl(patten, replace_str, src, "sig")
+		match := vegePcre.PcreppMatchFirstImpl(patten, src, "sig")
+		log.Println(res)
+		log.Println(match)
+	}
 }
 
 func gore2() {
