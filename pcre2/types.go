@@ -1,7 +1,7 @@
 package pcre2
 
 import (
-	"go.elara.ws/pcre/lib"
+	"github.com/Godyu97/vegePcre/pcre2/lib"
 	"strings"
 )
 

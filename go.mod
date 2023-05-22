@@ -2,10 +2,8 @@ module github.com/Godyu97/vegePcre
 
 go 1.19
 
-require github.com/Godyu97/vege9 v1.0.10
-
 require (
-	go.elara.ws/pcre v0.0.0-20230421030233-daf2d2e6973f
+	github.com/Godyu97/vege9 v1.0.10
 	modernc.org/libc v1.22.6
 )
 

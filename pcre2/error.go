@@ -2,12 +2,10 @@ package pcre2
 
 import (
 	"fmt"
-	"unsafe"
-
-	"go.elara.ws/pcre/lib"
-
+	"github.com/Godyu97/vegePcre/pcre2/lib"
 	"modernc.org/libc"
 	"modernc.org/libc/sys/types"
+	"unsafe"
 )
 
 var pce pcreError
