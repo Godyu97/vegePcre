@@ -1,4 +1,4 @@
-package vegePcre
+package pcre
 
 import (
 	"testing"

@@ -47,7 +47,7 @@
 //
 // For details on the regular expression language implemented by this
 // package and the flags defined below, see the PCRE documentation.
-package vegePcre
+package pcre
 
 /*
 #cgo LDFLAGS: -lpcre

@@ -8,7 +8,7 @@
 
 // source: mypcre.i
 
-package vegePcre
+package pcre
 
 /*
 #cgo LDFLAGS: -lpcre++ -lpcre -lpcrecpp
@@ -42,7 +42,8 @@ func Pcrecpp_ReplaceCgo(arg1 string, arg2 string, arg3 string, arg4 string) (_sw
 	cRet := C.Pcrecpp_Replace(cArg1, cArg2, cArg3, cArg4)
 	defer C.free(unsafe.Pointer(cRet))
 	// 将 C 字符串转换为 Go 字符串并返回
-	return C.GoString(cRet)
+	_swig_ret = C.GoString(cRet)
+	return
 }
 
 func Pcrecpp_MatchFirstCgo(arg1 string, arg2 string, arg3 string) (_swig_ret string) {
@@ -60,5 +61,6 @@ func Pcrecpp_MatchFirstCgo(arg1 string, arg2 string, arg3 string) (_swig_ret str
 	cRet := C.Pcrecpp_MatchFirst(cArg1, cArg2, cArg3)
 	defer C.free(unsafe.Pointer(cRet))
 	// 将 C 字符串转换为 Go 字符串并返回
-	return C.GoString(cRet)
+	_swig_ret = C.GoString(cRet)
+	return
 }

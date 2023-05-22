@@ -4,7 +4,8 @@ import (
 	"log"
 
 	"fmt"
-	"github.com/Godyu97/vegePcre"
+	"github.com/Godyu97/vege9/vegeTools"
+	"github.com/Godyu97/vegePcre/pcre2"
 	"regexp"
 )
 
@@ -16,26 +17,23 @@ type PcreReq struct {
 }
 
 func main() {
-	for {
-		var src = "Hello (world)(hh)!"
-		var replace_str = `sacascascascas<\1>aaa`
-		var patten = "\\((.*?)\\)"
-		res := vegePcre.PcreppReplaceImpl(patten, replace_str, src, "sig")
-		match := vegePcre.PcreppMatchFirstImpl(patten, src, "sig")
-		log.Println(res)
-		log.Println(match)
-	}
-}
-
-func gore2() {
-	src := `Hello (world)(hh)!`
-	repl := `~<$1>~`
-	reg, err := regexp.Compile(`\((.*?)\)`)
-	if err != nil {
-		panic(err)
-	}
-	res := reg.ReplaceAllString(src, repl)
-	log.Println(res)
+	//for i := 0; i < 1000; i++ {
+	//	go func() {
+	//		for i := 0; i < 1000; i++ {
+	//			var src = fmt.Sprintf("Hello (%s)(%s)!", vegeTools.RandStringMask(256), vegeTools.RandStringMask(256))
+	//			var replace_str = `sacascascascas<\1>aaa`
+	//			var patten = "\\((.*?)\\)"
+	//			res := pcre.PcreppReplaceImpl(patten, replace_str, src, "sig")
+	//			match := pcre.PcreppMatchFirstImpl(patten, src, "sig")
+	//			log.Println(res)
+	//			log.Println(match)
+	//		}
+	//	}()
+	//}
+	//for {
+	//	time.Sleep(time.Millisecond)
+	//}
+	TestPcre2()
 }
 
 func Re2MatchFirst(req PcreReq) string {
@@ -50,4 +48,14 @@ func Re2MatchFirst(req PcreReq) string {
 }
 func TranFlagsToPattern(p, flags string) string {
 	return fmt.Sprintf("(?%s)%s", flags, p)
+}
+
+func TestPcre2() {
+	var src = fmt.Sprintf("Hello (%s)(%s)!", vegeTools.RandStringMask(256), vegeTools.RandStringMask(256))
+	var replace_str = `<$1>`
+	var patten = "\\((.*?)\\)"
+	//var patten = "hello"
+	re := pcre2.MustCompileOpts(patten, pcre2.HandleFlags("si"))
+	res := re.ReplaceAllString(src, replace_str)
+	log.Println(res)
 }
