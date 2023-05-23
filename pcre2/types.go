@@ -61,7 +61,7 @@ const (
  * @return A new Pcre object, which holds te compiled pattern.
  */
 func HandleFlags(flags string) CompileOption {
-	var f = CompileOption(0)
+	var f = CompileOption(UTF)
 	if strings.Contains(flags, "i") {
 		f |= Caseless
 	}

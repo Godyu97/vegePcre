@@ -4,7 +4,6 @@ import (
 	"log"
 
 	"fmt"
-	"github.com/Godyu97/vege9/vegeTools"
 	"github.com/Godyu97/vegePcre/pcre2"
 	"regexp"
 )
@@ -51,10 +50,10 @@ func TranFlagsToPattern(p, flags string) string {
 }
 
 func TestPcre2() {
-	var src = fmt.Sprintf("Hello (%s)(%s)!", vegeTools.RandStringMask(256), vegeTools.RandStringMask(256))
-	var replace_str = `<$1>`
-	var patten = "\\((.*?)\\)"
-	//var patten = "hello"
+	var src = fmt.Sprintf("Hello (%s)(%s)!", "世界", "鸿宇")
+	var replace_str = `x`
+	//var patten = "\\((.*?)\\)"
+	var patten = "[\u4e00-\u9fa5]"
 	re := pcre2.MustCompileOpts(patten, pcre2.HandleFlags("si"))
 	res := re.ReplaceAllString(src, replace_str)
 	log.Println(res)
